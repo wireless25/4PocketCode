@@ -83,7 +83,7 @@ ssh root@YOUR_SERVER_IP
 > **Paste this single command:**
 
 ```
-curl -sL https://raw.githubusercontent.com/rajbreno/4PocketCode/main/setup.sh | bash
+curl -sL https://raw.githubusercontent.com/wireless25/4PocketCode/main/setup.sh | bash
 ```
 
 **What it installs:**
