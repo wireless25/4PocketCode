@@ -8,24 +8,24 @@ echo ""
 echo "\$4 PocketCode Setup Starting..."
 echo ""
 
-# Step 1: Update System
+# Update System
 echo "Updating system..."
 apt update -y > /dev/null 2>&1
 apt upgrade -y > /dev/null 2>&1
 
-# Step 2: Install essentials (Docker, Tmux, Git, Python, Compilers)
+# Install essentials (Docker, Tmux, Git, Python, Compilers)
 echo "Installing essentials..."
 apt install -y tmux git curl build-essential python3-pip unzip docker.io > /dev/null 2>&1
 
-# Step 3: Install Tailscale VPN
+# Install Tailscale VPN
 echo "Installing Tailscale..."
 curl -fsSL https://tailscale.com/install.sh 2>/dev/null | sh > /dev/null 2>&1
 
-# Step 4: Install NVM (Node Version Manager)
+# Install NVM (Node Version Manager)
 echo "Installing NVM..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh 2>/dev/null | bash > /dev/null 2>&1
 
-# Step 5: Activate NVM immediately (critical fix - won't work without this!)
+# Activate NVM immediately (critical fix - won't work without this!)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -35,15 +35,19 @@ echo "Installing Node.js..."
 nvm install --lts > /dev/null 2>&1
 npm install -g nodemon > /dev/null 2>&1
 
-# Step 7: Install OpenCode
+# Install OpenCode
 echo "Installing OpenCode..."
 curl -fsSL https://opencode.ai/install 2>/dev/null | bash > /dev/null 2>&1
 
-# Step 8: Create projects folder
+# Install bun
+echo "Installing bun..."
+curl -fsSL https://bun.com/install | bash
+
+# Create projects folder
 echo "Creating projects folder..."
 mkdir -p ~/projects
 
-# Step 9: Add aliases to bashrc
+# Add aliases to bashrc
 echo "Creating shortcuts..."
 cat >> ~/.bashrc << 'EOF'
 
